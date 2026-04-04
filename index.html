@@ -17,7 +17,7 @@
     <meta name="keywords" content="techlab, computer error fix, mobile troubleshooting, windows patch, access denied fix, android glitches, software tools, tech tutorial">
     <meta name="author" content="TechLab">
     <style>
-        /* Mobile-First Premium Dark Mode Styling */
+        
         body {
             background-color: #0b1330; /* Deep Navy Blue */
             color: #ffffff;
@@ -45,6 +45,17 @@
             max-width: 600px;
             width: 100%;
         }
+.page-background {
+    position: fixed;          /* This is what keeps it from moving */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 90%;               
+    max-width: 800px;         
+    opacity: 0.15;            /* Adjust this to make it darker or lighter */
+    z-index: -1;              /* This keeps it BEHIND your cards */
+    pointer-events: none;     /* This makes it "ghost-like" so you can click through it */
+}
         .logo {
             height: 60px;
             width: auto;
@@ -166,6 +177,7 @@
     </style>
 </head>
 <body>
+<img src="logo.png" class="page-background" alt="TechLab Watermark">
 
     <header>
         <div class="header-container">
@@ -180,7 +192,7 @@
 
     <div class="container">
 <div class="card">
-            <img src="logo.png" alt="" class="card-watermark">
+            
             <div class="card-content">
                 <div class="section-title" style="margin-top: 0;">Welcome to TechLab</div>
                 <p style="color: #b3b3b3; font-size: 16px; line-height: 1.6; text-align: left; margin-bottom: 0; font-weight: 400;">
@@ -209,7 +221,7 @@
  outline: none;">
 
         <div class="card">
-            <img src="logo.png" alt="" class="card-watermark">
+            
             <div class="card-content">
 
                 <div class="section-title">#91 CHANGE THEME IN SNAPCHAT</div>
@@ -219,7 +231,7 @@
             </div>
         </div>
 <div class="card">
-         <img src="logo.png" alt="" class="card-watermark">
+         
          <div class="card-content">
                 <div class="section-title">#90 Turn On/Off Dark Mode In Facebook</div>
                 <div class="video-container">
@@ -228,7 +240,7 @@
 </div>
         </div>
 <div class="card">
-         <img src="logo.png" alt="" class="card-watermark">
+         
          <div class="card-content">
                 <div class="section-title">#89 Turn On/Off Dark Mode In Instagram</div>
                 <div class="video-container">
@@ -237,7 +249,7 @@
 </div>
         </div>
 <div class="card">
-         <img src="logo.png" alt="" class="card-watermark">
+         
          <div class="card-content">
                 <div class="section-title">#88 Fix Drive "Access Is Denied" (No Data Loss)</div>
                 <div class="video-container">
@@ -246,7 +258,7 @@
 </div>
         </div>
 <div class="card">
-         <img src="logo.png" alt="" class="card-watermark">
+         
          <div class="card-content">
                 <div class="section-title">#87 Create Windows 10 Bootable USB | Step-by-Step</div>
                 <div class="video-container">

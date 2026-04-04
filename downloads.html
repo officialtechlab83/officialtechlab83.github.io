@@ -22,6 +22,17 @@
         header { background-color: #121a3a; padding: 20px; border-bottom: 2px solid #e0c25a; display: flex; align-items: center; justify-content: center; }
         .header-container { display: flex; align-items: center; max-width: 600px; width: 100%; }
         .logo { height: 60px; width: auto; margin-right: 15px; }
+.page-background {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
         h1 { margin: 0; font-size: 32px; color: #e0c25a; letter-spacing: 2px; font-weight: 700; }
         .subtitle { font-size: 14px; color: #ffffff; margin-top: 5px; font-weight: 600; }
         .container { max-width: 850px; margin: 0 auto; padding: 30px 20px; }
@@ -37,6 +48,7 @@
     </style>
 </head>
 <body>
+<img src="logo.png" class="page-background" alt="TechLab Watermark">
 
     <header>
         <div class="header-container">
@@ -66,7 +78,7 @@
  box-sizing: border-box; outline: none;">
 
         <div class="card">
-            <img src="logo.png" alt="" class="card-watermark">
+            
             <div class="card-content">
                 <div class="section-title">#88 FIX DRIVE "ACCESS IS DENIED"</div>
                 
@@ -81,7 +93,7 @@
         </div>
 
         <div class="card">
-            <img src="logo.png" alt="" class="card-watermark">
+            
             <div class="card-content">
                 <div class="section-title">#31 Egads! Download Failed - Fix It 100% | Download Chrome In Windows 10 | 3 Ways To Fix and Download</div>
                 
