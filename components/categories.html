@@ -1,0 +1,81 @@
+<div class="page-header">
+
+
+    <button id="addCategoryBtn" class="primary-btn">
+        <i class="fa-solid fa-plus"></i>
+        Add Category
+    </button>
+
+</div>
+
+<div class="table-container">
+
+    <table class="category-table">
+
+
+        
+         <thead>
+
+            <tr>
+
+                <th>Category</th>
+
+                <th>Total Videos</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="categoryTable">
+
+            <tr>
+
+                <td colspan="3" style="text-align:center;padding:40px;">
+
+                    No categories found
+
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+<div id="categoryModal" class="modal hidden">
+
+    <div class="modal-box">
+
+        <h2>Add Category</h2>
+
+        <input
+            id="categoryName"
+            placeholder="Category Name">
+
+        <div style="display:flex;gap:10px;justify-content:flex-end;">
+
+            <button
+                id="cancelCategory"
+                class="primary-btn">
+
+                Cancel
+
+            </button>
+
+            <button
+                id="saveCategory"
+                class="primary-btn">
+
+                Save
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

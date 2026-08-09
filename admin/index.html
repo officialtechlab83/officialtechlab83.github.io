@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechLab CMS</title>
+
+    <link rel="stylesheet" href="../css/admin.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <h2>TECHLAB</h2>
+
+            <span>CONTENT MANAGEMENT SYSTEM</span>
+
+        </div>
+
+        <nav>
+
+            <button class="nav-btn active" data-page="dashboard">
+                <i class="fa-solid fa-gauge-high"></i>
+                Dashboard
+            </button>
+
+            <button class="nav-btn" data-page="videos">
+                <i class="fa-solid fa-video"></i>
+                Videos
+            </button>
+
+            <button class="nav-btn" data-page="categories">
+    <i class="fa-solid fa-folder"></i>
+    Categories
+</button>
+
+            <button class="nav-btn" data-page="settings">
+                <i class="fa-solid fa-gear"></i>
+                Settings
+            </button>
+
+        </nav>
+
+        <button id="logoutBtn" class="logout">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </button>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="pageTitle">
+
+                    Dashboard
+
+                </h1>
+
+                <p id="pageSubtitle">
+
+                    Welcome to TechLab CMS
+
+                </p>
+
+            </div>
+
+           <div class="user">
+
+    <img
+        id="userPhoto"
+        src="https://placehold.co/60x60"
+        alt="User">
+
+</div>
+        </header>
+
+        <section id="content">
+
+            Loading...
+
+        </section>
+
+    </main>
+
+</div>
+
+<div id="toastContainer"></div>
+
+<div id="confirmModal" class="confirm-modal hidden">
+
+    <div class="confirm-box">
+
+        <div class="confirm-icon">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+
+        <div class="confirm-content">
+
+            <h3 id="confirmTitle">
+                Are you sure?
+            </h3>
+
+            <p id="confirmMessage">
+                This action cannot be undone.
+            </p>
+
+        </div>
+
+        <div class="confirm-actions">
+
+            <button id="confirmCancel" class="confirm-cancel">
+                Cancel
+            </button>
+
+            <button id="confirmProceed" class="confirm-delete">
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="../js/admin.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

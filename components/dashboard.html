@@ -1,0 +1,103 @@
+<div class="dashboard">
+
+    <!-- STAT CARDS -->
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <div class="stat-icon">🎬</div>
+            <div class="stat-content">
+                <div class="stat-number" id="videoCount">0</div>
+                <div class="stat-label">Videos</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">🏷️</div>
+            <div class="stat-content">
+                <div class="stat-number" id="categoryCount">0</div>
+                <div class="stat-label">Categories</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">⭐</div>
+            <div class="stat-content">
+                <div class="stat-number" id="featuredCount">0</div>
+                <div class="stat-label">Featured</div>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">👤</div>
+            <div class="stat-content">
+                <div class="stat-number" id="adminEmail">Admin</div>
+                <div class="stat-label">Logged In</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- SECOND ROW -->
+    <div class="dashboard-row">
+
+        <div class="dashboard-card quick-actions-card">
+
+            <h2>⚡ Quick Actions</h2>
+
+            <div class="quick-actions">
+
+                <button id="quickAddVideo" class="primary-btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Add Video
+                </button>
+
+                <button id="quickSettings" class="primary-btn">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="dashboard-card latest-card">
+
+            <h2>🕒 Latest Upload</h2>
+
+            <div id="latestVideo">
+                No videos yet
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- RECENT ACTIVITY -->
+    <div class="dashboard-card">
+
+        <h2>📈 Recent Activity</h2>
+
+        <div id="recentActivity">
+            Nothing yet.
+        </div>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+    <div class="dashboard-card">
+
+        <h2>📊 Upload Statistics</h2>
+
+        <div class="chart-container">
+
+            <canvas id="uploadChart"></canvas>
+
+        </div>
+
+    </div>
+
+</div>

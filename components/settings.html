@@ -1,0 +1,62 @@
+<div class="page-header">
+
+<h2>Website Settings</h2>
+
+</div>
+
+<div class="modal-box" style="max-width:900px;display:flex;flex-direction:column;gap:18px;">
+
+<label>Website Name</label>
+<input id="siteName">
+
+<label>Welcome Message</label>
+<textarea id="welcomeMessage" rows="6"></textarea>
+
+<label>YouTube Link</label>
+<input id="youtubeLink">
+
+<label>Instagram Link</label>
+<input id="instagramLink">
+
+<label>Telegram Link</label>
+<input id="telegramLink">
+
+<label>Email</label>
+<input id="emailLink">
+
+
+<hr style="margin:30px 0;border:1px solid #334155;">
+
+
+
+<h3>Database Backup</h3>
+
+<div style="display:flex;gap:15px;margin-top:20px;">
+
+    <button id="backupBtn" class="primary-btn">
+
+        💾 Backup Database
+
+    </button>
+
+    <button id="restoreBtn" class="primary-btn">
+
+        📂 Restore Database
+
+    </button>
+
+</div>
+
+<input
+type="file"
+id="restoreFile"
+accept=".json"
+style="display:none;">
+
+<button id="saveSettings" class="primary-btn">
+
+💾 Save Settings
+
+</button>
+
+</div>

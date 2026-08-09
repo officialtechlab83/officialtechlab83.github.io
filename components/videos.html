@@ -1,0 +1,137 @@
+<div class="page-header">
+
+    <h2>Video Manager</h2>
+
+    <button id="addVideoBtn" class="primary-btn">
+        <i class="fa-solid fa-plus"></i>
+        Add Video
+    </button>
+
+</div>
+
+<div class="video-toolbar">
+
+    <input
+        type="text"
+        id="searchVideo"
+        placeholder="🔍 Search videos...">
+
+    <select id="filterCategory">
+        <option value="">All Categories</option>
+    </select>
+
+    <select id="filterFeatured">
+        <option value="">All Videos</option>
+        <option value="true">Featured</option>
+        <option value="false">Not Featured</option>
+    </select>
+
+</div>
+
+<div id="bulkToolbar" class="bulk-toolbar hidden">
+
+    <span id="selectedCount">
+        0 selected
+    </span>
+
+    <div class="bulk-actions">
+
+        <button
+            id="bulkFeatureBtn"
+            class="bulk-feature-btn">
+
+            <i class="fa-solid fa-star"></i>
+            Feature
+
+        </button>
+
+        <button
+            id="bulkDeleteBtn"
+            class="bulk-delete-btn">
+
+            <i class="fa-solid fa-trash"></i>
+            Delete
+
+        </button>
+
+    </div>
+
+</div>
+
+<div class="table-container">
+
+<table class="video-table">
+
+<thead>
+<tr>
+
+<th class="col-select">
+    <input
+        type="checkbox"
+        id="selectAllVideos">
+</th>
+
+<th>No.</th>
+<th>Thumbnail</th>
+<th>Title</th>
+<th>Category</th>
+<th>Featured</th>
+<th>Date</th>
+<th>Actions</th>
+
+</tr>
+</thead>
+
+<tbody id="videoTable">
+<tr>
+<td colspan="7" style="text-align:center;padding:40px;">
+    No videos found
+</td>
+</tr>
+</tbody>
+
+</table>
+
+</div>
+
+<div id="pagination" class="pagination"></div>
+
+<div id="videoModal" class="modal hidden">
+
+<div class="modal-box">
+
+<h2>Add Video</h2>
+
+<input id="videoTitle" placeholder="Video Title">
+
+<input id="videoUrl" placeholder="YouTube URL">
+
+<select id="videoCategory">
+
+<option value="">
+
+Select Category
+
+</option>
+
+</select>
+
+<textarea
+id="videoDescription"
+placeholder="Description"></textarea>
+
+<div style="display:flex;gap:10px;justify-content:flex-end;">
+
+<button id="cancelVideo" class="primary-btn">
+Cancel
+</button>
+
+<button id="saveVideo" class="primary-btn">
+Publish
+</button>
+
+</div>
+
+</div>
+
+</div>
