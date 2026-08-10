@@ -1,7 +1,7 @@
 export function getVideoId(url) {
 
     const regExp =
-        /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([^?&]+)/;
+        /(?:youtube\.com\/(?:watch\?v=|embed\/|shorts\/)|youtu\.be\/)([^?&/]+)/;
 
     const match = url.match(regExp);
 
