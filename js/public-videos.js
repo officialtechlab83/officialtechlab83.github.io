@@ -16,12 +16,10 @@ const featuredContainer = document.getElementById("featuredVideo");
 const featuredSection = document.getElementById("featuredSection");
 
 function getVideoId(url) {
-
     const match = url.match(
-        /(?:youtube\.com.*v=|youtu\.be\/)([^&]+)/);
-
+        /(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([^?&/]+)/
+    );
     return match ? match[1] : "";
-
 }
 
 // ---------------- Featured ----------------
