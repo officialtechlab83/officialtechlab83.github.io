@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Guide | TechLab</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .header-content .logo {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+        }
+
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            display: block;
+            background-color: #121a3a;
+            color: #e0c25a;
+            border: 1px solid #e0c25a;
+            text-decoration: none;
+            padding: 13px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .guide-header {
+            background: linear-gradient(
+                135deg,
+                #1f2a5c 0%,
+                #121a3a 100%
+            );
+
+            border: 1px solid #e0c25a;
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 25px;
+        }
+
+        .guide-header h2 {
+            color: #e0c25a;
+            margin: 0 0 12px;
+            font-size: 28px;
+        }
+
+        .guide-meta {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .guide-description {
+            color: #ddd;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        .guide-step {
+            background: linear-gradient(
+                135deg,
+                #1f2a5c 0%,
+                #121a3a 100%
+            );
+
+            border: 1px solid #30425d;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        .guide-step-number {
+            color: #e0c25a;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .guide-step h3 {
+            color: white;
+            font-size: 21px;
+            margin: 0 0 14px;
+        }
+
+        .guide-step-content {
+            color: #ddd;
+            line-height: 1.8;
+            font-size: 15px;
+            white-space: pre-wrap;
+        }
+
+        .guide-step-image {
+            display: block;
+            width: 100%;
+            max-width: 800px;
+            max-height: 600px;
+            object-fit: contain;
+            margin: 20px auto 5px;
+            border-radius: 8px;
+            border: 1px solid #30425d;
+        }
+
+        .step-link {
+            display: inline-block;
+            margin-top: 15px;
+            background: #e0c25a;
+            color: #121a3a;
+            text-decoration: none;
+            padding: 9px 15px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .loading-guide,
+        .guide-error {
+            text-align: center;
+            color: #aaa;
+            padding: 40px;
+        }
+
+        .guide-error {
+            color: #ff8b8b;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="header-content">
+
+        <img
+            src="logo.png"
+            alt="TechLab Logo"
+            class="logo"
+        >
+
+        <div>
+
+            <h1 id="siteTitle">
+                TECHLAB
+            </h1>
+
+            <div class="subtitle">
+                Step-by-Step Guide
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <div class="guide-container">
+
+
+        <a
+            href="guides.html"
+            class="back-btn"
+        >
+            ← Back to Guides
+        </a>
+
+
+        <div id="guideContent">
+
+            <div class="loading-guide">
+                Loading guide...
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    <div style="margin-bottom: 10px;">
+        &copy; 2026 TechLab. All Rights Reserved.
+    </div>
+
+</footer>
+
+
+<script type="module">
+
+import { db } from "./js/firebase.js";
+
+import {
+    doc,
+    getDoc
+} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+
+
+const guideContent =
+    document.getElementById("guideContent");
+
+
+// ==========================================
+// GET GUIDE ID FROM URL
+// ==========================================
+
+const urlParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const guideId =
+    urlParams.get("id");
+
+
+// ==========================================
+// CHECK ID
+// ==========================================
+
+if (!guideId) {
+
+    showError(
+        "No guide was specified."
+    );
+
+}
+
+
+// ==========================================
+// LOAD GUIDE
+// ==========================================
+
+else {
+
+    loadGuide();
+
+}
+
+
+async function loadGuide() {
+
+    try {
+
+        const guideRef =
+            doc(
+                db,
+                "guides",
+                guideId
+            );
+
+
+        const guideSnapshot =
+            await getDoc(guideRef);
+
+
+        if (!guideSnapshot.exists()) {
+
+            showError(
+                "Guide not found."
+            );
+
+            return;
+
+        }
+
+
+        const guide =
+            guideSnapshot.data();
+
+
+        // Only published guides are public
+
+        if (
+            guide.status !== "published"
+        ) {
+
+            showError(
+                "This guide is not available."
+            );
+
+            return;
+
+        }
+
+
+        renderGuide(guide);
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unable to load guide:",
+            error
+        );
+
+
+        showError(
+            "Unable to load this guide."
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// RENDER GUIDE
+// ==========================================
+
+function renderGuide(guide) {
+
+    const steps =
+        Array.isArray(guide.steps)
+            ? guide.steps
+            : [];
+
+
+    let stepsHTML = "";
+
+
+    steps.forEach(
+        (step, index) => {
+
+            const title =
+                step.title ||
+                `Step ${index + 1}`;
+
+
+            const text =
+                step.text ||
+                "";
+
+
+            const image =
+                step.image ||
+                "";
+
+
+            const link =
+                step.link ||
+                "";
+
+
+            stepsHTML += `
+
+                <div class="guide-step">
+
+
+                    <div class="guide-step-number">
+
+                        STEP ${index + 1}
+
+                    </div>
+
+
+                    <h3>
+
+                        ${escapeHtml(title)}
+
+                    </h3>
+
+
+                    ${
+                        text
+                        ?
+                        `
+                        <div class="guide-step-content">
+
+                            ${escapeHtml(text)}
+
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        image
+                        ?
+                        `
+                        <img
+                            src="${escapeHtml(image)}"
+                            alt="${escapeHtml(title)}"
+                            class="guide-step-image"
+                            onerror="this.style.display='none';"
+                        >
+                        `
+                        :
+                        ""
+                    }
+
+
+                    ${
+                        link
+                        ?
+                        `
+                        <a
+                            href="${escapeHtml(link)}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="step-link"
+                        >
+                            Open Useful Link →
+                        </a>
+                        `
+                        :
+                        ""
+                    }
+
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    guideContent.innerHTML = `
+
+        <div class="guide-header">
+
+            <h2>
+
+                ${escapeHtml(
+                    guide.title ||
+                    "Untitled Guide"
+                )}
+
+            </h2>
+
+
+            <div class="guide-meta">
+
+                TechLab •
+                ${escapeHtml(
+                    guide.readTime ||
+                    "5 min read"
+                )}
+
+            </div>
+
+
+            <div class="guide-description">
+
+                ${escapeHtml(
+                    guide.description ||
+                    ""
+                )}
+
+            </div>
+
+        </div>
+
+
+        ${
+            stepsHTML
+            ?
+            stepsHTML
+            :
+            `
+            <div class="loading-guide">
+
+                This guide has no steps yet.
+
+            </div>
+            `
+        }
+
+    `;
+
+
+    // Update browser tab title
+
+    document.title =
+        (
+            guide.title ||
+            "Guide"
+        ) +
+        " | TechLab";
+
+}
+
+
+// ==========================================
+// ERROR
+// ==========================================
+
+function showError(message) {
+
+    guideContent.innerHTML = `
+
+        <div class="guide-error">
+
+            ${escapeHtml(message)}
+
+        </div>
+
+    `;
+
+}
+
+
+// ==========================================
+// HTML SAFETY
+// ==========================================
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replaceAll("&", "&amp;")
+
+        .replaceAll("<", "&lt;")
+
+        .replaceAll(">", "&gt;")
+
+        .replaceAll('"', "&quot;")
+
+        .replaceAll("'", "&#039;");
+
+}
+
+</script>
+
+
+</body>
+
+</html>

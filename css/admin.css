@@ -2126,3 +2126,112 @@ body {
     transform: translateY(-1px);
 }
 
+
+
+/* =====================================================
+   GUIDE MODAL — FIX INTERNAL SCROLLING
+   ===================================================== */
+
+.guide-modal-box {
+    max-width: 600px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+
+/* Make the modal scrollbar clean */
+.guide-modal-box::-webkit-scrollbar {
+    width: 6px;
+}
+
+.guide-modal-box::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.guide-modal-box::-webkit-scrollbar-thumb {
+    background: #30415b;
+    border-radius: 10px;
+}
+
+.guide-modal-box::-webkit-scrollbar-thumb:hover {
+    background: #405572;
+}
+
+/* Keep the modal accessible on small screens */
+@media (max-height: 700px) {
+
+    .guide-modal-box {
+        max-height: 85vh !important;
+    }
+
+}
+
+/* =====================================================
+   GUIDE STEPS
+   ===================================================== */
+
+.guide-step {
+    background: #121c2d;
+    border: 1px solid #30425d;
+    border-radius: 9px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.guide-step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.guide-step-header strong {
+    color: #4da3ff;
+    font-size: 13px;
+}
+
+.delete-step-btn {
+    width: 30px;
+    height: 30px;
+
+    border: 0;
+    border-radius: 6px;
+
+    background: #ef4444;
+    color: white;
+
+    cursor: pointer;
+}
+
+.delete-step-btn:hover {
+    background: #dc2626;
+}
+
+.guide-step input,
+.guide-step textarea {
+    width: 100%;
+
+    background: #0d1526;
+    color: #f5f7fb;
+
+    border: 1px solid #30425d;
+    border-radius: 7px;
+
+    padding: 9px 10px;
+
+    font-size: 12px;
+
+    outline: none;
+
+    margin-bottom: 8px;
+}
+
+.guide-step textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.guide-step input:focus,
+.guide-step textarea:focus {
+    border-color: #347cf6;
+}

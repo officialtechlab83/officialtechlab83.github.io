@@ -16,6 +16,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 const subtitles = {
     dashboard: "Welcome to TechLab CMS",
     videos: "Manage all your YouTube videos",
+    guides: "Manage your step-by-step guides",
     categories: "Manage your website categories",
     settings: "CMS Settings"
 };

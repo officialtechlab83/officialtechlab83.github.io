@@ -1,0 +1,223 @@
+<div class="page-header">
+
+    <div>
+        <h2>Guides</h2>
+    </div>
+
+    <button id="addGuideBtn" class="primary-btn">
+        <i class="fa-solid fa-plus"></i>
+        Add Guide
+    </button>
+
+</div>
+
+
+<div class="video-toolbar">
+
+    <input
+        type="text"
+        id="searchGuide"
+        placeholder="Search guides..."
+    >
+
+</div>
+
+
+<div class="table-container">
+
+    <table class="video-table">
+
+        <thead>
+
+            <tr>
+
+                <th>#</th>
+
+                <th>Title</th>
+
+                <th>Description</th>
+
+                <th>Status</th>
+
+                <th>Created</th>
+
+                <th>Actions</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody id="guideTable">
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    style="text-align:center;padding:40px;"
+                >
+                    Loading guides...
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<div
+    id="guidePagination"
+    class="pagination">
+</div>
+
+
+<!-- GUIDE MODAL -->
+
+<div
+    id="guideModal"
+    class="modal hidden"
+>
+
+    <div
+    class="modal-box guide-modal-box"
+>
+
+
+        <h2 id="guideModalTitle">
+            Add Guide
+        </h2>
+
+
+        <!-- GUIDE BASIC INFORMATION -->
+
+        <input
+            type="text"
+            id="guideTitle"
+            placeholder="Guide title"
+        >
+
+
+        <textarea
+            id="guideDescription"
+            placeholder="Short guide description"
+        ></textarea>
+
+
+        <input
+            type="text"
+            id="guideReadTime"
+            placeholder="Reading time (e.g. 5 min read)"
+        >
+
+
+        <select id="guideStatus">
+
+            <option value="draft">
+                Draft
+            </option>
+
+            <option value="published">
+                Published
+            </option>
+
+        </select>
+
+
+        <!-- STEPS -->
+
+        <div
+            style="
+            margin-top:20px;
+            padding-top:15px;
+            border-top:1px solid #30425d;
+            "
+        >
+
+            <div
+                style="
+                display:flex;
+                align-items:center;
+                justify-content:space-between;
+                margin-bottom:12px;
+                "
+            >
+
+                <h3
+                    style="
+                    font-size:14px;
+                    color:#f5f7fb;
+                    "
+                >
+                    Guide Steps
+                </h3>
+
+
+                <button
+                    type="button"
+                    id="addStepBtn"
+                    class="primary-btn"
+                >
+                    <i class="fa-solid fa-plus"></i>
+                    Add Step
+                </button>
+
+            </div>
+
+
+            <div id="guideSteps">
+
+                <!-- Steps will appear here -->
+
+                <div
+                    id="noStepsMessage"
+                    style="
+                    text-align:center;
+                    padding:20px;
+                    color:#7f91aa;
+                    border:1px dashed #30425d;
+                    border-radius:8px;
+                    "
+                >
+                    No steps added yet.
+                    Click "Add Step" to begin.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div
+            style="
+            display:flex;
+            justify-content:flex-end;
+            gap:8px;
+            margin-top:20px;
+            "
+        >
+
+            <button
+                id="cancelGuide"
+                class="confirm-cancel"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                id="saveGuide"
+                class="confirm-proceed"
+            >
+                Save Guide
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

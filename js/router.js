@@ -29,6 +29,15 @@ if (page === "videos") {
 await initVideos();
 }
 
+if (page === "guides") {
+
+    const { initGuides } =
+        await import("./guides.js");
+
+    await initGuides();
+
+}
+
 
 
 if (page === "settings") {
